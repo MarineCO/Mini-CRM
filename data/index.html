@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mini CRM</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<h1>Customers informations:</h1>
+	<div id="data"></div>
+	
+	<!-- <button id="click">Ajouter un client</button> -->
+
+	<form method="post" action="http://192.168.1.18:3003/app.js">
+		<legend>Last name</legend>
+		<input type="text" name="last_name">
+		<legend>First name</legend>
+		<input type="text" name="first_name">
+		<legend>Phone</legend>
+		<input type="text" name="phone">
+		<legend>Email</legend>
+		<input type="text" name="email">
+		<legend>Description</legend>
+		<input type="text" name="description">
+
+		<input id="check" type="submit" value="save">
+	</form>
+
+	<script type="text/javascript" src="node_modules/mustache/mustache.js"></script>
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
