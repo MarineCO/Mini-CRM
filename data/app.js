@@ -23,21 +23,21 @@
 		},
 
 		dataDone: function(response) {
-			for (var i = 0; i < response.customers.length; i++) {
-				var info = response.customers[i];
-				var id = info.id;
 
-				$('#data').append('<ul data-id="'+id+'">' +
-				 '<li>' + 'Id :' + info.id + '</li>' +
-				 '<li>' + 'First name :' + info.first_name + '</li>' +
-				 '<li>' + 'Last name :' + info.last_name + '</li>' +
-				 '<li>' + 'Company :' + info.company + '</li>' +
-				 '<li>' + 'Role :' + info.role + '</li>' +
-				 '<li>' + 'Phone :' + info.phone + '</li>' +
-				 '<li>' + 'Email :' + info.email + '</li>' +
-				 '<li>' + 'Description :' + info.description + '</li>' +
-				  '</ul>');
-			}
+				var template = "<ul> {{#customers}}" +
+				 "<li> Id : {{id}} </li>" +
+				 "<li> First name : {{first_name}} </li>" +
+				 "<li> Last name : {{last_name}} </li>" +
+				 "<li> Company : {{company}} </li>" +
+				 "<li> Role : {{role}} </li>" +
+				 "<li> Phone : {{phone}} </li>" +
+				 "<li> Email : {{email}} </li>" +
+				 "<li> Description : {{description}} </li> <br></br>" +
+				 "{{/customers}} </ul>";
+
+				 var html = Mustache.to_html(template, response);
+				 $('#data').html(html);
+
 		},
 
 		fail: function() {
