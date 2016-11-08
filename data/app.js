@@ -3,7 +3,7 @@
 
 	var app = {
 
-		url: "http://192.168.1.114:3003/",
+		url: "http://192.168.1.6:3003/",
 		json: "crm.json",
 
 
@@ -14,6 +14,9 @@
 
 		listeners: function() {
 			$('#check').on('click', this.btnClick);
+			$('form').on('submit', function(event) {
+				event.preventDefault();
+			});
 		},
 
 		getDataCustom: function() {
@@ -23,9 +26,8 @@
 		},
 
 		dataDone: function(response) {
-
+			//boucle for remplacée par utilisation Mustache.js
 				var template = "<ul> {{#customers}}" +
-				 "<li> Id : {{id}} </li>" +
 				 "<li> First name : {{first_name}} </li>" +
 				 "<li> Last name : {{last_name}} </li>" +
 				 "<li> Company : {{company}} </li>" +
@@ -37,7 +39,6 @@
 
 				 var html = Mustache.to_html(template, response);
 				 $('#data').html(html);
-
 		},
 
 		fail: function() {
@@ -45,8 +46,27 @@
 		},
 
 		btnClick: function() {
-			console.log('yep');
-		},
+			//récup contenu input
+			var lastname = $('#lastname').val();
+			var firstname = $('#firstname').val();
+			var phone = $('#phone').val();
+			var email = $('#email').val();
+			var description = $('#description').val();
+			console.log(lastname);
+
+			//envoyer ce que j'ai récup ds input au server
+			$.post({
+				url: 'http://192.168.1.6:3003/createCustomer', 
+				dataType: 'text',
+				response: {
+					last_name: $('#lastname').val(),
+					first_name: $('#firstname').val(),
+					phone: $('#phone').val(),
+					email:$('#email').val(),
+					description: $('#description').val()
+				}
+			});
+		}
 	};
 
 	$(document).ready(function() {
