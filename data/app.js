@@ -25,7 +25,7 @@
 		},
 
 		dataDone: function(response) {
-			//boucle for remplacée par utilisation Mustache.js
+
 			var template = "<ul> {{#customers}}" +
 			"<li> First name : {{first_name}} </li>" +
 			"<li> Last name : {{last_name}} </li>" +
@@ -45,7 +45,6 @@
 		},
 
 		btnClick: function() {
-			//récup contenu input check
 
 			var lastname = $('#lastname').val();
 			var firstname = $('#firstname').val();
@@ -55,7 +54,6 @@
 			var email = $('#email').val();
 			var description = $('#description').val();
 
-			//envoyer ce que j'ai récup ds input au server
 			$.ajax({
 				url: 'http://192.168.1.114:3003/createCustomer',
 				type: 'POST',
