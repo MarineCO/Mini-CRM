@@ -8,22 +8,37 @@
 <body>
 	<h1>Customers informations:</h1>
 	<div id="data"></div>
-	
-	<!-- <button id="click">Ajouter un client</button> -->
 
-	<form method="post" action="http://192.168.1.18:3003/app.js">
+	<form>
 		<legend>Last name</legend>
-		<input type="text" name="last_name">
-		<legend>First name</legend>
-		<input type="text" name="first_name">
-		<legend>Phone</legend>
-		<input type="text" name="phone">
-		<legend>Email</legend>
-		<input type="text" name="email">
-		<legend>Description</legend>
-		<input type="text" name="description">
+		<label for="lastname"></label>
+		<input id="lastname" type="text" name="last_name">
 
-		<input id="check" type="submit" value="save">
+		<legend>First name</legend>
+		<label for="firstname"></label>
+		<input id="firstname" type="text" name="first_name">
+
+		<legend>Company</legend>
+		<label for="company"></label>
+		<input id="company" type="text" name="company">
+
+		<legend>Role</legend>
+		<label for="role"></label>
+		<input id="role" type="text" name="role">
+
+		<legend>Phone</legend>
+		<label for="phone"></label>
+		<input id="phone" type="text" name="phone">
+
+		<legend>Email</legend>
+		<label for="email"></label>
+		<input id="email" type="text" name="email">
+
+		<legend>Description</legend>
+		<label for="description"></label>
+		<input id="description" type="text" name="description">
+
+		<button id="check">Add</button>
 	</form>
 
 	<script type="text/javascript" src="node_modules/mustache/mustache.js"></script>
